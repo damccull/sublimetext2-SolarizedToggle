@@ -15,14 +15,13 @@ class SolarizedToggle(object):
 
         # Update current mode based on current mode
         if (self.current_mode == "dark"):
-            new_mode = "light"
+            self.current_mode = "light"
         elif (self.current_mode == "light"):
-            new_mode = "dark"
+            self.current_mode = "dark"
         else: # If no current mode exists (if first run), set it to light
             self.current_mode = "light"
-            new_mode = "light"
         # Set the mode in the plugin_settings, then save to settings file
-        self.plugin_settings.set("solarized_toggle_mode", new_mode)
+        self.plugin_settings.set("solarized_toggle_mode", self.current_mode)
         sublime.save_settings(self.plugin_settings_file)
 
     def set_color_scheme(self):
@@ -30,7 +29,7 @@ class SolarizedToggle(object):
         light_scheme = self.plugin_settings.get("color_scheme_light")
         dark_scheme = self.plugin_settings.get("color_scheme_dark")
         # Decide on which scheme to use based on current mode
-        new_scheme = light_scheme if self.current_mode == "dark" else dark_scheme
+        new_scheme = light_scheme if self.current_mode == "light" else dark_scheme
 
         # Set the color scheme in global_settings and save the global settings file
         self.global_settings.set("color_scheme", new_scheme)
@@ -45,7 +44,7 @@ class SolarizedToggle(object):
             light_theme = self.plugin_settings.get("theme_light")
             dark_theme = self.plugin_settings.get("theme_dark")
             # Decide on which theme to use based on current mode
-            new_theme = light_theme if self.current_mode == "dark" else dark_theme
+            new_theme = light_theme if self.current_mode == "light" else dark_theme
 
             # Set the theme in global_settings and save to global settings file
             self.global_settings.set("theme", new_theme)
