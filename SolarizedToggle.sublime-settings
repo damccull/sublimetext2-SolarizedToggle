@@ -36,5 +36,14 @@
     "font_size_dark": 10.0,
     "font_face_light": "Menlo",
     "font_options_light": [ "subpixel_antialias" ],
-    "font_size_light": 11.0
+    "font_size_light": 11.0,
+
+    // Support for the BetterFindBuffer plugin
+    //      To enable: Copy the line below to the Solarized Toggle - User settings file.
+    //                 Change the enable_find_results_switching to true.
+    //                 
+    // NOTE: If you have the Find Results tab open when switching color schemes it won't 
+    // switch. You need to swap to another tab and then return to the Find results tab
+    // for the switch to be successful.
+    "enable_find_results_switching": false,
 }

@@ -1,4 +1,4 @@
-#Solarized Toggle
+# Solarized Toggle
 
 ##Introduction
 Solarized Toggle is a very simple plugin originally written to allow users of [Sublime Text 2][st2] and [Sublime Text 3][st3] to easily switch between light and dark versions of the Solarized color scheme.
@@ -8,8 +8,7 @@ Now any color scheme included with Sublime Text or installed separately can be u
 Why use this plugin? Instead of having to manually click Preferences->Color Scheme->Some Colors, you can simply press F12 (CMD+F12 on OSX, Control+F12 on Linux) in order to toggle between two themes. If you enable the theme switcher, you can also easily toggle between themes that compliment your color schemes.
 
 ##New features in this version
-* Linux-specific keybind CTRL-F12 added by https://github.com/lzap.
-* Updated packages.json schema to 3.0.
+* Added support for the [BetterFindBuffer][betterfindbuffer] plugin
 
 ##Contribute to this code:
 * Fork the project, write a patch, submit a pull request.
@@ -44,9 +43,11 @@ Congratulations. The plugin is now installed. Test it by pressing F12 a few time
   * color_scheme
   * font\_face, font\_size, font\_options, (if font switching is enabled)
   * theme (if theme switching is enabled)
+  * find results color scheme (if find results switching is enabled)
 * Prior to Sublime Text 3 build 3114, there is an issue with the theme switcher for both Sublime Text 2 and 3 where the window sometimes does not update the entire theme, leaving some artifacts of the previous theme behind. This is a limitation of Sublime Text itself. To fix the issue, simply resize or minimize/restore your window. This will cause the window to redraw itself with the new theme. Upgrading to a version starting with Sublime Text 3 build 3114 will also fix this problem.
 
 [st2]: http://www.sublimetext.com/ "Sublime Text 2"
 [st3]: http://www.sublimetext.com/3 "Sublime Text 3"
 [packagecontrol]: http://wbond.net/sublime_packages/package_control "Package Control"
 [currentVersion]: https://github.com/damccull/sublimetext-SolarizedToggle/archive/1.4.9.zip "Current Version"
+[betterfindbuffer]: https://packagecontrol.io/packages/BetterFindBuffer "BetterFindBuffer"

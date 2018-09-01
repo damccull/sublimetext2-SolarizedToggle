@@ -1,0 +1,4 @@
+Version 1.5
+
+Changes:
+* Added support for the BetterFindBuffer plugin. https://packagecontrol.io/packages/BetterFindBuffer

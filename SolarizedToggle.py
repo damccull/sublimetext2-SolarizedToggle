@@ -8,6 +8,8 @@ class SolarizedToggle(object):
         self.global_settings = sublime.load_settings(self.global_settings_file)
         self.plugin_settings_file = 'SolarizedToggle.sublime-settings'
         self.plugin_settings = sublime.load_settings(self.plugin_settings_file)
+        self.find_results_settings_file = 'Find Results.sublime-settings' 
+        self.find_results_settings = sublime.load_settings(self.find_results_settings_file)
 
         ## Determine if active color scheme is one of the toggles        
         # Get the color schemes we want to switch between from the plugin_settings
@@ -43,6 +45,19 @@ class SolarizedToggle(object):
         # Set the color scheme in global_settings and save the global settings file
         self.global_settings.set("color_scheme", new_scheme)
         sublime.save_settings(self.global_settings_file)
+
+    def set_find_results(self):
+        # First get status of theme switching setting from plugin_settings
+        find_results_enabled = self.plugin_settings.get("enable_find_results_switching")
+
+        if (find_results_enabled):
+            
+            # Decide on which scheme to use based on current mode
+            new_scheme = self.light_scheme if self.current_mode == "light" else self.dark_scheme
+
+            # Set the color scheme in find_results_settings and save the find results settings file
+            self.find_results_settings.set("color_scheme", new_scheme)
+            sublime.save_settings(self.find_results_settings_file)
 
     def set_font(self):
         # First get status of theme switching setting from plugin_settings
@@ -95,6 +110,8 @@ class SolarizedToggleCommand(sublime_plugin.ApplicationCommand):
         _toggler.set_font()
         # Set the new color scheme
         _toggler.set_color_scheme()
+        # Set the new find results color scheme
+        _toggler.set_find_results()
 
 def plugin_loaded(): # Called automatically in ST3 only.
     # Run initial setup
